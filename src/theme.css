@@ -67,6 +67,8 @@ h3 {
 /*    color: #e53935;*/
 /*}*/
 
+
+
 .btn {
     color: #42b983;
     position: relative;
@@ -119,6 +121,12 @@ h3 {
     background: #c25205;
     color: #fff;
     border-color: #c25205;
+}
+
+.btn.blue {
+    background: #028090;
+    color: #fff;
+    border-color: #028090;
 }
 
 .container {

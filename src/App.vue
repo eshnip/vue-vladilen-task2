@@ -1,43 +1,22 @@
 <template>
   <div class="container column">
-    <form class="card card-w30">
-      <app-select></app-select>
-
-      <app-value></app-value>
-
-      <app-btn-add></app-btn-add>
-    </form>
-
-    <div class="card card-w70">
-      <h1>Резюме Nickname</h1>
-      <div class="avatar">
-        <img src="https://cdn.dribbble.com/users/5592443/screenshots/14279501/drbl_pop_r_m_rick_4x.png">
-      </div>
-      <h2>Опыт работы</h2>
-      <p>
-        главный герой американского мультсериала «Рик и Морти», гениальный учёный, изобретатель, атеист (хотя в некоторых сериях он даже молится Богу, однако, каждый раз после чудесного спасения ссылается на удачу и вновь отвергает его существование), алкоголик, социопат, дедушка Морти. На момент начала третьего сезона ему 70 лет[1]. Рик боится пиратов, а его главной слабостью является некий - "Санчезиум". Исходя из того, что существует неограниченное количество вселенных, существует неограниченное количество Риков, герой сериала предположительно принадлежит к измерению С-137. В серии комикcов Рик относится к измерению C-132, а в игре «Pocket Mortys» — к измерению C-123[2]. Прототипом Рика Санчеза является Эмметт Браун, герой кинотрилогии «Назад в будущее»[3].
-      </p>
-      <h3>Добавьте первый блок, чтобы увидеть результат</h3>
-    </div>
+    <app-form @addBlock="addBlockToCard"></app-form>
+    <app-card :card="card"></app-card>
   </div>
+
   <div class="container">
-    <p>
-      <app-btn-loader @click="loadComments" v-if="!commentsLoaded"></app-btn-loader>
-    </p>
-
+    <app-btn-loader @click="loadComments" v-if="!commentsLoaded">Загрузить комментарии</app-btn-loader>
     <app-loader v-if="loading"></app-loader>
-
     <app-comments v-else :comments="commentsList"></app-comments>
   </div>
 </template>
 
 <script>
-import AppLoader from "@/AppLoader";
-import AppComments from "@/AppComments";
-import AppBtnLoader from "@/AppBtnLoader";
-import AppSelect from "@/AppSelect";
-import AppValue from "@/AppValue";
-import AppBtnAdd from "@/AppBtnAdd";
+import AppForm from "@/components/AppForm";
+import AppCard from "@/components/AppCard";
+import AppBtnLoader from "@/components/AppBtnLoader";
+import AppLoader from "@/components/AppLoader";
+import AppComments from "@/components/AppComments";
 import axios from "axios";
 
 export default {
@@ -46,13 +25,39 @@ export default {
       loading: false,
       commentsLoaded: false,
       commentsList: [],
-      block: 'title'
+      card: [
+        {
+          type: 'default',
+          text: 'Lorem10',
+          id: 1,
+        },
+        {
+          type: 'default',
+          text: 'Lorem20',
+          id: 2,
+        },
+      ],
     }
   },
   methods: {
-    addBlock() {
+    addBlockToCard(data) {
+      this.card.push(Object.assign({}, data))
+      console.log(this.card)
 
     },
+    upBlock() {
+      alert('upBlock')
+
+    },
+    downBlock() {
+      alert('downBlock')
+
+    },
+    removeBlock() {
+      alert('removeBlock')
+
+    },
+
     async loadComments() {
       try {
         this.loading = true
@@ -75,8 +80,17 @@ export default {
       }
     }
   },
+  computed: {
+    textareaValue(event) {
+       console.log(event.target.value)
+    }
+  },
   components: {
-    AppLoader, AppComments, AppBtnLoader, AppSelect, AppValue, AppBtnAdd
+    AppCard,
+    AppForm,
+    AppBtnLoader,
+    AppLoader,
+    AppComments
   }
 }
 </script>

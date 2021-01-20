@@ -4,23 +4,21 @@
     <textarea
         id="value"
         rows="3"
-        v-model="value"
+        v-model="block.text"
     ></textarea>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['block'],
   data() {
     return {
       value: ''
     }
   },
-  computed: {
-    textareaLength() {
-      return this.value
-      console.log(this.value)
-    }
+  methods: {
+
   }
 }
 </script>
