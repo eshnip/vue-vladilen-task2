@@ -8,7 +8,6 @@
 <script>
 export default {
   emits: ['load'],
-  props: [],
 }
 </script>
 

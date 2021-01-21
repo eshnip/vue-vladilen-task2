@@ -14,11 +14,6 @@
 export default {
   emits: ['textareaLength'],
   props: ['block'],
-  data() {
-    return {
-      value: ''
-    }
-  },
   methods: {
     textareaLength() {
       this.$emit('textareaLength', this.block.text)

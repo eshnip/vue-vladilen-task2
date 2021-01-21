@@ -16,13 +16,6 @@
 <script>
 export default {
   props: ['block'],
-  data() {
-    return {
-    }
-  },
-  computed: {
-
-  }
 }
 </script>
 
