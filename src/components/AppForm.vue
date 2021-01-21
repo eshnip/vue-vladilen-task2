@@ -2,26 +2,26 @@
   <form class="card card-w30"
         @submit.prevent="addBlock"
   >
-    <app-select
+    <form-select
         :block="block"
-    ></app-select>
+    ></form-select>
 
-    <app-value
+    <form-value
         :block="block"
-    ></app-value>
+    ></form-value>
 
-    <app-btn-add
+    <form-btn-add
         @click="addBlock"
         :disabled="disabledBtn"
-    >Добавить блок</app-btn-add>
+    >Добавить блок</form-btn-add>
 
   </form>
 </template>
 
 <script>
-import AppSelect from "@/components/AppSelect";
-import AppValue from "@/components/AppValue";
-import AppBtnAdd from "@/components/AppBtnAdd";
+import FormSelect from "@/components/FormSelect";
+import FormValue from "@/components/FormValue";
+import FormBtnAdd from "@/components/FormBtnAdd";
 
 export default {
   emits: ['addBlock'],
@@ -46,7 +46,7 @@ export default {
     }
   },
   components: {
-    AppSelect, AppValue, AppBtnAdd
+    FormSelect, FormValue, FormBtnAdd
   }
 }
 </script>

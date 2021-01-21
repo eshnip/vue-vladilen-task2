@@ -6,7 +6,7 @@
         v-for="(block, idx) in card"
         :key="idx"
     >
-      <component :is="'app-card-block-' + block.type"
+      <component :is="'card-block-' + block.type"
                  :text="block.text"
       ></component>
     </template>
@@ -17,16 +17,16 @@
 </template>
 
 <script>
-import AppCardBlockTitle from "@/components/blocks/AppCardBlockTitle";
-import AppCardBlockSubtitle from "@/components/blocks/AppCardBlockSubtitle";
-import AppCardBlockAvatar from "@/components/blocks/AppCardBlockAvatar";
-import AppCardBlockText from "@/components/blocks/AppCardBlockText";
+import CardBlockTitle from "@/components/blocks/CardBlockTitle";
+import CardBlockSubtitle from "@/components/blocks/CardBlockSubtitle";
+import CardBlockAvatar from "@/components/blocks/CardBlockAvatar";
+import CardBlockText from "@/components/blocks/CardBlockText";
 export default {
   props: {
     card: Array,
   },
   components: {
-    AppCardBlockTitle, AppCardBlockSubtitle, AppCardBlockAvatar, AppCardBlockText
+    CardBlockTitle, CardBlockSubtitle, CardBlockAvatar, CardBlockText
   }
 
 }

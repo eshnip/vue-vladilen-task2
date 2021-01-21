@@ -44,13 +44,12 @@ export default {
         setTimeout(async () => {
           const {data} = await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=42');
 
-          const commentsData = Object.keys(data).map(key => {
+          this.commentsList = Object.keys(data).map(key => {
             return {
               id: data[key].id,
               ...data[key],
             }
           })
-          this.commentsList = [...commentsData]
           this.loading = false
           this.commentsLoaded = true
         }, 1500)
