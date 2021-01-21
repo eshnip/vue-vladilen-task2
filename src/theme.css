@@ -211,6 +211,13 @@ h3 {
     box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
     background: #fff;
 }
+.card__nav {
+    display: flex;
+    justify-content: flex-end;
+}
+.card__nav .btn {
+    font-size: 0.5rem;
+}
 
 .card.card-w30 {
     width: 30%;

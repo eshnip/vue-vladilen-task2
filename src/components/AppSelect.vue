@@ -18,14 +18,10 @@ export default {
   props: ['block'],
   data() {
     return {
-      select: 'title'
     }
   },
   computed: {
-    select:{
-      get() {return this.value},
-      set(v) {this.$emit('input', v)}
-    }
+
   }
 }
 </script>

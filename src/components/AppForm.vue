@@ -12,6 +12,7 @@
 
     <app-btn-add
         @click="addBlock"
+        :disabled="disabledBtn"
     >Добавить блок</app-btn-add>
 
   </form>
@@ -35,10 +36,17 @@ export default {
   methods: {
     addBlock () {
       this.$emit('addBlock', this.block)
+      this.block.text = ''
+    }
+  },
+  computed: {
+    disabledBtn() {
+      const textarea = this.block.text
+      return textarea.length < 4
     }
   },
   components: {
-    AppSelect, AppBtnAdd, AppValue
+    AppSelect, AppValue, AppBtnAdd
   }
 }
 </script>

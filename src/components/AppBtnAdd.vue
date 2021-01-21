@@ -3,7 +3,6 @@
       type="submit"
       class="btn primary"
       @click.prevent="$emit('addBlock')"
-      :disabled="disabledBtn"
   >
     <slot />
   </button>

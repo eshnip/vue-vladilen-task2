@@ -1,24 +1,32 @@
 <template>
   <div class="card card-w70">
-    <h3 v-if="!card.length">Добавьте первую запись</h3>
+    <h3 v-if="!card.length">Добавьте первую запись, чтобы увидеть результат</h3>
 
-    <app-card-block
-        v-for="block in card"
-        :key="block.id"
-        :id="block.id"
-        :type="block.type"
-        :text="block.text"
-    ></app-card-block>
+    <template
+        v-for="(block, idx) in card"
+        :key="idx"
+    >
+      <component :is="'app-card-block-' + block.type"
+                 :text="block.text"
+      ></component>
+    </template>
+
+
 
   </div>
 </template>
 
 <script>
-import AppCardBlock from "@/components/AppCardBlock";
+import AppCardBlockTitle from "@/components/blocks/AppCardBlockTitle";
+import AppCardBlockSubtitle from "@/components/blocks/AppCardBlockSubtitle";
+import AppCardBlockAvatar from "@/components/blocks/AppCardBlockAvatar";
+import AppCardBlockText from "@/components/blocks/AppCardBlockText";
 export default {
-  props: ['card'],
+  props: {
+    card: Array,
+  },
   components: {
-    AppCardBlock
+    AppCardBlockTitle, AppCardBlockSubtitle, AppCardBlockAvatar, AppCardBlockText
   }
 
 }

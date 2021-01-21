@@ -4,6 +4,7 @@
     <textarea
         id="value"
         rows="3"
+        @input="textareaLength"
         v-model="block.text"
     ></textarea>
   </div>
@@ -11,6 +12,7 @@
 
 <script>
 export default {
+  emits: ['textareaLength'],
   props: ['block'],
   data() {
     return {
@@ -18,8 +20,10 @@ export default {
     }
   },
   methods: {
-
-  }
+    textareaLength() {
+      this.$emit('textareaLength', this.block.text)
+    }
+  },
 }
 </script>
 

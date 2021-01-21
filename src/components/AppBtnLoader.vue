@@ -1,10 +1,8 @@
 <template>
-  <p>
     <button
         class="btn primary"
         @click="$emit('load')"
     ><slot /></button>
-  </p>
 </template>
 
 <script>

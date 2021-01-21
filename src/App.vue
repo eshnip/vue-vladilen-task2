@@ -5,7 +5,12 @@
   </div>
 
   <div class="container">
-    <app-btn-loader @click="loadComments" v-if="!commentsLoaded">Загрузить комментарии</app-btn-loader>
+    <p>
+      <app-btn-loader
+          @click="loadComments"
+          v-if="!commentsLoaded"
+      >Загрузить комментарии</app-btn-loader>
+    </p>
     <app-loader v-if="loading"></app-loader>
     <app-comments v-else :comments="commentsList"></app-comments>
   </div>
@@ -25,39 +30,14 @@ export default {
       loading: false,
       commentsLoaded: false,
       commentsList: [],
-      card: [
-        {
-          type: 'default',
-          text: 'Lorem10',
-          id: 1,
-        },
-        {
-          type: 'default',
-          text: 'Lorem20',
-          id: 2,
-        },
-      ],
+      card: [],
     }
   },
   methods: {
     addBlockToCard(data) {
       this.card.push(Object.assign({}, data))
-      console.log(this.card)
 
     },
-    upBlock() {
-      alert('upBlock')
-
-    },
-    downBlock() {
-      alert('downBlock')
-
-    },
-    removeBlock() {
-      alert('removeBlock')
-
-    },
-
     async loadComments() {
       try {
         this.loading = true
@@ -80,11 +60,6 @@ export default {
       }
     }
   },
-  computed: {
-    textareaValue(event) {
-       console.log(event.target.value)
-    }
-  },
   components: {
     AppCard,
     AppForm,
@@ -96,14 +71,5 @@ export default {
 </script>
 
 <style>
-  .avatar {
-    display: flex;
-    justify-content: center;
-  }
 
-  .avatar img {
-    width: 150px;
-    height: auto;
-    border-radius: 50%;
-  }
 </style>
